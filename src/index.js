@@ -11,18 +11,15 @@ function displayMeaning(response) {
 function generateNameMeaning(event) {
   event.preventDefault();
 
-  let userInstruction = document.querySelector("#user-instruction");
+  let instructionInput = document.querySelector("#user-instruction");
   let apiKey = "a93d1e9t3900f64c3459obcda72aab15";
+  let prompt = `User instructions: Generate the meaning of the name ${instructionInput.value}`;
   let context =
-    "You are a knowledgeable AI Assistant who knows all the names worldwide. Please focus on the main aspects and provide answer in maximum 6 lines. Please follow user instructions. ";
-  let prompt = `User instructions: Please generate the meaning of the name ${userInstruction.value}`;
+    "You are a knowledgeable AI Assistant who knows all the names worldwide. Please focus on the main aspects and provide answer in maximum 6 lines. Please follow user instructions.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
   console.log("generating...");
-  console.log(`Prompt: ${prompt}`);
-  console.log(`Context: ${context}`);
-
-  axios.get(apiUrl).then("displayMeaning");
+  axios.get(apiUrl).then(displayMeaning);
 }
 
 let nameFormElement = document.querySelector("#name-generator-form");
