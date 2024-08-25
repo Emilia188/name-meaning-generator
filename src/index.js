@@ -1,5 +1,4 @@
 function displayMeaning(response) {
-  console.log("generated");
   new Typewriter("#description", {
     strings: response.data.answer,
     autoStart: true,
@@ -22,7 +21,6 @@ function generateNameMeaning(event) {
   descriptionElement.classList.remove("hidden");
   descriptionElement.innerHTML = `<div class = "generating">Just a moment ⏳...</div>`;
 
-  console.log("generating...");
   axios.get(apiUrl).then(displayMeaning);
 }
 
