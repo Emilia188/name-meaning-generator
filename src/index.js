@@ -1,13 +1,28 @@
+function displayMeaning(response) {
+  console.log("generated");
+  new Typewriter("#description", {
+    strings: response.data.answer,
+    autoStart: true,
+    delay: 50,
+    cursor: "",
+  });
+}
+
 function generateNameMeaning(event) {
   event.preventDefault();
 
-  new Typewriter("#description", {
-    strings:
-      "The name Emilia is of Latin origin and is derived from the Roman family name Aemilius.",
-    autoStart: true,
-    cursor: "",
-    delay: 50,
-  });
+  let userInstruction = document.querySelector("#user-instruction");
+  let apiKey = "a93d1e9t3900f64c3459obcda72aab15";
+  let context =
+    "You are a knowledgeable AI Assistant who knows all the names worldwide. Please focus on the main aspects and provide answer in maximum 6 lines. Please follow user instructions. ";
+  let prompt = `User instructions: Please generate the meaning of the name ${userInstruction.value}`;
+  let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
+
+  console.log("generating...");
+  console.log(`Prompt: ${prompt}`);
+  console.log(`Context: ${context}`);
+
+  axios.get(apiUrl).then("displayMeaning");
 }
 
 let nameFormElement = document.querySelector("#name-generator-form");
