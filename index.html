@@ -20,19 +20,22 @@
         <h1>AI Name Meaning Generator</h1>
       </header>
       <main>
-        <form id="name-generator-form">
-          <input
-            type="text"
-            placeholder="Please enter the name you are interested in"
-            autofocus
-            required
-            autocomplete="off"
-            class="search-field"
-            id="user-instruction"
-          />
-          <input type="submit" class="submit-button" />
-        </form>
-        <div class="description" id="description"></div>
+        <div class="form-container">
+          <form id="name-generator-form">
+            <input
+              type="text"
+              placeholder="Please enter the name you are interested in"
+              autofocus
+              required
+              autocomplete="off"
+              class="search-field"
+              id="user-instruction"
+            />
+            <input type="submit" class="submit-button" />
+          </form>
+          <div class="hint">i.e: Ella, Andrew or Svenja</div>
+        </div>
+        <div class="description hidden" id="description"></div>
       </main>
 
       <footer>

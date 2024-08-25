@@ -18,6 +18,10 @@ function generateNameMeaning(event) {
     "You are a knowledgeable AI Assistant who knows all the names worldwide. Please focus on the main aspects and provide answer in maximum 6 lines. Please follow user instructions.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${prompt}&context=${context}&key=${apiKey}`;
 
+  let descriptionElement = document.querySelector("#description");
+  descriptionElement.classList.remove("hidden");
+  descriptionElement.innerHTML = `<div class = "generating">Just a moment ⏳...</div>`;
+
   console.log("generating...");
   axios.get(apiUrl).then(displayMeaning);
 }
